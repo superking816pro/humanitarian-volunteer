@@ -15,8 +15,8 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite, o
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    foodforhomeless.follow(player1, 1)
-    pause(5000)
+    foodforhomeless.follow(player1, 10)
+    pause(500)
     foodforhomeless.follow(player1, 100)
 })
 let homeless3: Sprite = null
