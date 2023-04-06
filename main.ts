@@ -14,8 +14,6 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function on_on_over
     
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_on_overlap2(sprite4: Sprite, otherSprite4: Sprite) {
-    foodforhomeless.follow(player1, 10)
-    pause(200)
     foodforhomeless.follow(player1, 100)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function on_left_pressed() {
