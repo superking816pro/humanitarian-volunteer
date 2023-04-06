@@ -12,12 +12,11 @@ def on_on_overlap(sprite, otherSprite):
         foodforhomeless.x += -53
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson, on_on_overlap)
 
-def on_on_overlap2(sprite2, otherSprite2):
-    if True:
-        info.change_life_by(1)
-        sprites.destroy(homeless2, effects.spray, 500)
-        foodforhomeless.x += -53
-sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap2)
+def on_on_overlap2(sprite4, otherSprite4):
+    foodforhomeless.follow(player1, 10)
+    pause(200)
+    foodforhomeless.follow(player1, 100)
+sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap2)
 
 def on_left_pressed():
     animation.run_image_animation(player1,
@@ -28,6 +27,13 @@ def on_left_pressed():
         False)
 controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
 
+def on_on_overlap3(sprite3, otherSprite3):
+    if True:
+        info.change_life_by(1)
+        sprites.destroy(homeless3, effects.spray, 500)
+        foodforhomeless.x += -53
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap3)
+
 def on_right_pressed():
     animation.run_image_animation(player1,
         assets.animation("""
@@ -37,18 +43,12 @@ def on_right_pressed():
         False)
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
 
-def on_on_overlap3(sprite3, otherSprite3):
+def on_on_overlap4(sprite2, otherSprite2):
     if True:
         info.change_life_by(1)
-        sprites.destroy(homeless3, effects.spray, 500)
+        sprites.destroy(homeless2, effects.spray, 500)
         foodforhomeless.x += -53
-sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap3)
-
-def on_on_overlap4(sprite4, otherSprite4):
-    foodforhomeless.follow(player1, 10)
-    pause(200)
-    foodforhomeless.follow(player1, 100)
-sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap4)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap4)
 
 homeless3: Sprite = None
 homeless2: Sprite = None
