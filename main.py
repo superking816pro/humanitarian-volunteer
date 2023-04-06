@@ -2,30 +2,194 @@
 class SpriteKind:
     object2 = SpriteKind.create()
     feedingperson = SpriteKind.create()
+    feedingperson2 = SpriteKind.create()
+    feedingperson3 = SpriteKind.create()
 
 def on_on_overlap(sprite, otherSprite):
     if True:
         info.change_life_by(1)
-        sprites.destroy(homeless3, effects.spray, 500)
-        pause(500)
         sprites.destroy(homeless1, effects.spray, 500)
-        pause(500)
-        sprites.destroy(homeless2, effects.spray, 500)
-        pause(500)
-        game.game_over(True)
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson, on_on_overlap)
 
 def on_on_overlap2(sprite2, otherSprite2):
-    foodforhomeless.follow(player1, 1)
-    pause(5000)
+    if True:
+        info.change_life_by(1)
+        sprites.destroy(homeless2, effects.spray, 500)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap2)
+
+def on_left_pressed():
+    animation.run_image_animation(player1,
+        [img("""
+                . . . . f f f f f f . . . . . . 
+                        . . . f 2 f e e e e f f . . . . 
+                        . . f 2 2 2 f e e e e f f . . . 
+                        . . f e e e e f f e e e f . . . 
+                        . f e 2 2 2 2 e e f f f f . . . 
+                        . f 2 e f f f f 2 2 2 e f . . . 
+                        . f f f e e e f f f f f f f . . 
+                        . f e e 4 4 f b e 4 4 e f f . . 
+                        . . f e d d f 1 4 d 4 e e f . . 
+                        . . . f d d d d 4 e e e f . . . 
+                        . . . f e 4 4 4 e e f f . . . . 
+                        . . . f 2 2 2 e d d 4 . . . . . 
+                        . . . f 2 2 2 e d d e . . . . . 
+                        . . . f 5 5 4 f e e f . . . . . 
+                        . . . . f f f f f f . . . . . . 
+                        . . . . . . f f f . . . . . . .
+            """),
+            img("""
+                . . . . . . . . . . . . . . . . 
+                        . . . . f f f f f f . . . . . . 
+                        . . . f 2 f e e e e f f . . . . 
+                        . . f 2 2 2 f e e e e f f . . . 
+                        . . f e e e e f f e e e f . . . 
+                        . f e 2 2 2 2 e e f f f f . . . 
+                        . f 2 e f f f f 2 2 2 e f . . . 
+                        . f f f e e e f f f f f f f . . 
+                        . f e e 4 4 f b e 4 4 e f f . . 
+                        . . f e d d f 1 4 d 4 e e f . . 
+                        . . . f d d d e e e e e f . . . 
+                        . . . f e 4 e d d 4 f . . . . . 
+                        . . . f 2 2 e d d e f . . . . . 
+                        . . f f 5 5 f e e f f f . . . . 
+                        . . f f f f f f f f f f . . . . 
+                        . . . f f f . . . f f . . . . .
+            """),
+            img("""
+                . . . . f f f f f f . . . . . . 
+                        . . . f 2 f e e e e f f . . . . 
+                        . . f 2 2 2 f e e e e f f . . . 
+                        . . f e e e e f f e e e f . . . 
+                        . f e 2 2 2 2 e e f f f f . . . 
+                        . f 2 e f f f f 2 2 2 e f . . . 
+                        . f f f e e e f f f f f f f . . 
+                        . f e e 4 4 f b e 4 4 e f f . . 
+                        . . f e d d f 1 4 d 4 e e f . . 
+                        . . . f d d d d 4 e e e f . . . 
+                        . . . f e 4 4 4 e e f f . . . . 
+                        . . . f 2 2 2 e d d 4 . . . . . 
+                        . . . f 2 2 2 e d d e . . . . . 
+                        . . . f 5 5 4 f e e f . . . . . 
+                        . . . . f f f f f f . . . . . . 
+                        . . . . . . f f f . . . . . . .
+            """),
+            img("""
+                . . . . . . . . . . . . . . . . 
+                        . . . . f f f f f f . . . . . . 
+                        . . . f 2 f e e e e f f . . . . 
+                        . . f 2 2 2 f e e e e f f . . . 
+                        . . f e e e e f f e e e f . . . 
+                        . f e 2 2 2 2 e e f f f f . . . 
+                        . f 2 e f f f f 2 2 2 e f . . . 
+                        . f f f e e e f f f f f f f . . 
+                        . f e e 4 4 f b e 4 4 e f f . . 
+                        . . f e d d f 1 4 d 4 e e f . . 
+                        . . . f d d d d 4 e e e f . . . 
+                        . . . f e 4 4 4 e d d 4 . . . . 
+                        . . . f 2 2 2 2 e d d e . . . . 
+                        . . f f 5 5 4 4 f e e f . . . . 
+                        . . f f f f f f f f f f . . . . 
+                        . . . f f f . . . f f . . . . .
+            """)],
+        200,
+        False)
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
+
+def on_right_pressed():
+    animation.run_image_animation(player1,
+        [img("""
+                . . . . . . f f f f f f . . . . 
+                        . . . . f f e e e e f 2 f . . . 
+                        . . . f f e e e e f 2 2 2 f . . 
+                        . . . f e e e f f e e e e f . . 
+                        . . . f f f f e e 2 2 2 2 e f . 
+                        . . . f e 2 2 2 f f f f e 2 f . 
+                        . . f f f f f f f e e e f f f . 
+                        . . f f e 4 4 e b f 4 4 e e f . 
+                        . . f e e 4 d 4 1 f d d e f . . 
+                        . . . f e e e 4 d d d d f . . . 
+                        . . . . f f e e 4 4 4 e f . . . 
+                        . . . . . 4 d d e 2 2 2 f . . . 
+                        . . . . . e d d e 2 2 2 f . . . 
+                        . . . . . f e e f 4 5 5 f . . . 
+                        . . . . . . f f f f f f . . . . 
+                        . . . . . . . f f f . . . . . .
+            """),
+            img("""
+                . . . . . . . . . . . . . . . . 
+                        . . . . . . f f f f f f . . . . 
+                        . . . . f f e e e e f 2 f . . . 
+                        . . . f f e e e e f 2 2 2 f . . 
+                        . . . f e e e f f e e e e f . . 
+                        . . . f f f f e e 2 2 2 2 e f . 
+                        . . . f e 2 2 2 f f f f e 2 f . 
+                        . . f f f f f f f e e e f f f . 
+                        . . f f e 4 4 e b f 4 4 e e f . 
+                        . . f e e 4 d 4 1 f d d e f . . 
+                        . . . f e e e e e d d d f . . . 
+                        . . . . . f 4 d d e 4 e f . . . 
+                        . . . . . f e d d e 2 2 f . . . 
+                        . . . . f f f e e f 5 5 f f . . 
+                        . . . . f f f f f f f f f f . . 
+                        . . . . . f f . . . f f f . . .
+            """),
+            img("""
+                . . . . . . f f f f f f . . . . 
+                        . . . . f f e e e e f 2 f . . . 
+                        . . . f f e e e e f 2 2 2 f . . 
+                        . . . f e e e f f e e e e f . . 
+                        . . . f f f f e e 2 2 2 2 e f . 
+                        . . . f e 2 2 2 f f f f e 2 f . 
+                        . . f f f f f f f e e e f f f . 
+                        . . f f e 4 4 e b f 4 4 e e f . 
+                        . . f e e 4 d 4 1 f d d e f . . 
+                        . . . f e e e 4 d d d d f . . . 
+                        . . . . f f e e 4 4 4 e f . . . 
+                        . . . . . 4 d d e 2 2 2 f . . . 
+                        . . . . . e d d e 2 2 2 f . . . 
+                        . . . . . f e e f 4 5 5 f . . . 
+                        . . . . . . f f f f f f . . . . 
+                        . . . . . . . f f f . . . . . .
+            """),
+            img("""
+                . . . . . . . . . . . . . . . . 
+                        . . . . . . f f f f f f . . . . 
+                        . . . . f f e e e e f 2 f . . . 
+                        . . . f f e e e e f 2 2 2 f . . 
+                        . . . f e e e f f e e e e f . . 
+                        . . . f f f f e e 2 2 2 2 e f . 
+                        . . . f e 2 2 2 f f f f e 2 f . 
+                        . . f f f f f f f e e e f f f . 
+                        . . f f e 4 4 e b f 4 4 e e f . 
+                        . . f e e 4 d 4 1 f d d e f . . 
+                        . . . f e e e 4 d d d d f . . . 
+                        . . . . 4 d d e 4 4 4 e f . . . 
+                        . . . . e d d e 2 2 2 2 f . . . 
+                        . . . . f e e f 4 4 5 5 f f . . 
+                        . . . . f f f f f f f f f f . . 
+                        . . . . . f f . . . f f f . . .
+            """)],
+        200,
+        False)
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
+
+def on_on_overlap3(sprite3, otherSprite3):
+    if True:
+        info.change_life_by(1)
+        sprites.destroy(homeless3, effects.spray, 500)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap3)
+
+def on_on_overlap4(sprite4, otherSprite4):
+    foodforhomeless.follow(player1, 10)
+    pause(200)
     foodforhomeless.follow(player1, 100)
-sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap2)
+sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap4)
 
 homeless3: Sprite = None
 homeless2: Sprite = None
 homeless1: Sprite = None
-foodforhomeless: Sprite = None
 player1: Sprite = None
+foodforhomeless: Sprite = None
 scene.set_background_image(img("""
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -148,7 +312,6 @@ scene.set_background_image(img("""
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
         7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
 """))
-scene.camera_follow_sprite(player1)
 info.set_life(1)
 table = sprites.create(img("""
         ..cccccccccccccccccccccccccccc..
@@ -219,13 +382,14 @@ player1 = sprites.create(img("""
     """),
     SpriteKind.player)
 player1.y += 10
+scene.camera_follow_sprite(player1)
 player1.say_text("hello volunteer, I am you.", 5000, True)
 pause(5000)
 player1.say_text("today, you must complete giving food to the poor homeless people before time runs out.",
     5000,
     True)
 pause(5000)
-player1.say_text("quick, lest begin", 5000, True)
+player1.say_text("quick, let's begin", 5000, True)
 pause(5000)
 player1.say_text("they are waiting for us", 2000, True)
 homeless1 = sprites.create(img("""
@@ -267,7 +431,7 @@ homeless2 = sprites.create(img("""
             . . . f f f f f f . . . . 
             . . . f f . . f f . . . .
     """),
-    SpriteKind.feedingperson)
+    SpriteKind.feedingperson2)
 homeless2.x += 75
 homeless2.y += 10
 homeless3 = sprites.create(img("""
@@ -288,7 +452,7 @@ homeless3 = sprites.create(img("""
             . . . f f f f f f . . . 
             . . . f f . . f f . . .
     """),
-    SpriteKind.feedingperson)
+    SpriteKind.feedingperson3)
 homeless3.x += 35
 homeless3.y += 10
 
