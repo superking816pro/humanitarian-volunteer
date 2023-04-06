@@ -8,12 +8,14 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite, o
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless1, effects.spray, 500)
+        foodforhomeless.x += -53
     }
 })
 sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite, otherSprite) {
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless2, effects.spray, 500)
+        foodforhomeless.x += -53
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -36,6 +38,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson3, function (sprite, 
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless3, effects.spray, 500)
+        foodforhomeless.x += -53
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
