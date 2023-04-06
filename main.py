@@ -19,14 +19,23 @@ def on_on_overlap2(sprite2, otherSprite2):
         foodforhomeless.x += -53
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap2)
 
-def on_right_repeated():
+def on_left_pressed():
+    animation.run_image_animation(player1,
+        assets.animation("""
+            right-animation
+        """),
+        200,
+        False)
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
+
+def on_right_pressed():
     animation.run_image_animation(player1,
         assets.animation("""
             leftt-animation
         """),
         200,
         False)
-controller.right.on_event(ControllerButtonEvent.REPEATED, on_right_repeated)
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
 
 def on_on_overlap3(sprite3, otherSprite3):
     if True:
@@ -40,15 +49,6 @@ def on_on_overlap4(sprite4, otherSprite4):
     pause(200)
     foodforhomeless.follow(player1, 100)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap4)
-
-def on_left_repeated():
-    animation.run_image_animation(player1,
-        assets.animation("""
-            right-animation
-        """),
-        200,
-        False)
-controller.left.on_event(ControllerButtonEvent.REPEATED, on_left_repeated)
 
 homeless3: Sprite = None
 homeless2: Sprite = None
