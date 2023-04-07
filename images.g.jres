@@ -14,11 +14,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "player"
     },
-    "image4": {
-        "data": "hwQQABAAAAAAAMDMzAwAAADA7O7u7gIAAOzu7u7uLgAA7u4iIuLuAuDuLiIiIuIC4O4iIiIiIi7g7i4iIiIiLs7MLCIiIiLkfGcsIiIiIuR37iIiIiIi5ODiRCIiIkLi4CJVJCIiQg4ALlQkIiIkDgAuIiIiROIAAOAuIiLiDgAAAODu7g4AAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "food"
-    },
     "image5": {
         "data": "hwQOABAAAADw/wAAAAAAAP////8P4EQA///D//9OTQD/z8P89P//APA7zLzRvmP/z8zM9N80Y//PzExE3TRjD8/MTETdNGMPz8zM9N80Y//wO8y80b5j///Pw/z0//wA///D//9OTQD/////D+BEAPD/AAAAAAAA",
         "mimeType": "image/x-mkcd-f4",
@@ -33,6 +28,11 @@
         "data": "hwQMABAAAAAA8P//D+BEAAD//0T+T00A8P//TuT//wDw/kT03b5h/+9ORPTdFGH/7+5ERL0UYQ/v7k5EvRRhD+/u7vTdFGH/8P7v9N2+Yf/w//9O5P//AAD//0T+T00AAPD//w/gRAA=",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "homeless3"
+    },
+    "image4": {
+        "data": "hwQQABAAAAAAACAiIvIBAAAAICIiEh8AAAAgIiIS8QEAAAAiIhIRHwAAACAiEhHxAAAGdyISER8AAHZHJBLxEQAAQEZEFR8RAABARFT1EREAAEBEVRUfEQAAQFRVFfERAAAAVFUVER8AAABVVR0R8QAAUFVVHREfAABeVd0d8QEAAADQ3R0fAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "food"
     },
     "anim1": {
         "namespace": "myAnimations",

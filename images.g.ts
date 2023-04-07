@@ -172,25 +172,6 @@ c3bb333bbbb333bbbb333bbbb333bb3c
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
 `;
-            case "image4":
-            case "food":return img`
-. . . . . . . e c 7 . . . . . . 
-. . . . e e e c 7 7 e e . . . . 
-. . c e e e e c 7 e 2 2 e e . . 
-. c e e e e e c 6 e e 2 2 2 e . 
-. c e e e 2 e c c 2 4 5 4 2 e . 
-c e e e 2 2 2 2 2 2 4 5 5 2 2 e 
-c e e 2 2 2 2 2 2 2 2 4 4 2 2 e 
-c e e 2 2 2 2 2 2 2 2 2 2 2 2 e 
-c e e 2 2 2 2 2 2 2 2 2 2 2 2 e 
-c e e 2 2 2 2 2 2 2 2 2 2 2 2 e 
-c e e 2 2 2 2 2 2 2 2 2 2 4 2 e 
-. e e e 2 2 2 2 2 2 2 2 2 4 e . 
-. 2 e e 2 2 2 2 2 2 2 2 4 2 e . 
-. . 2 e e 2 2 2 2 2 4 4 2 e . . 
-. . . 2 2 e e 4 4 4 2 e e . . . 
-. . . . . 2 2 e e e e . . . . . 
-`;
             case "image5":
             case "homeless1":return img`
 . f f f . f f f f . f f f . 
@@ -247,6 +228,25 @@ e 4 f b 1 1 1 1 b f 4 e
 4 4 f 6 6 6 6 6 6 f 4 4 
 . . . f f f f f f . . . 
 . . . f f . . f f . . . 
+`;
+            case "image4":
+            case "food":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . 6 6 . . . . . . . e . 
+2 2 2 . . . 7 4 4 4 4 . . 5 5 . 
+2 2 2 2 . 7 7 6 4 4 4 4 5 5 5 . 
+2 2 2 2 2 7 4 4 4 4 5 5 5 5 5 d 
+2 2 2 2 2 2 4 4 4 5 5 5 5 5 d d 
+2 2 2 2 2 2 2 4 5 5 5 5 5 5 d d 
+2 2 2 2 2 2 2 5 5 5 5 5 d d d d 
+f 1 1 1 1 1 1 1 f 1 1 1 1 1 1 1 
+1 f 1 1 1 1 1 f 1 f 1 1 1 1 1 f 
+. 1 f 1 1 1 f 1 1 1 f 1 1 1 f 1 
+. . 1 f 1 f 1 1 1 1 1 f 1 f 1 . 
+. . . 1 f 1 1 1 1 1 1 1 f 1 . . 
 `;
         }
         return null;
