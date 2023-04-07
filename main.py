@@ -13,8 +13,6 @@ def on_on_overlap(sprite, otherSprite):
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson, on_on_overlap)
 
 def on_on_overlap2(sprite4, otherSprite4):
-    foodforhomeless.follow(player1, 10)
-    pause(200)
     foodforhomeless.follow(player1, 100)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap2)
 

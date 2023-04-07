@@ -1,5 +1,5 @@
 {
-    "name": "game",
+    "name": "humanitarian volunteer",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -25,5 +25,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "pyprj"
 }
