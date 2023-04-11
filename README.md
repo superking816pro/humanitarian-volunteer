@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://superking816pro.github.io/game/](https://superking816pro.github.io/humanitarian-volunteer/)
+> Open this page at [https://superking816pro.github.io/humanitarian-volunteer/](https://superking816pro.github.io/humanitarian-volunteer/)
 
 ## Use as Extension
 
