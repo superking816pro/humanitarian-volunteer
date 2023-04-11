@@ -10,13 +10,9 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite, o
         sprites.destroy(homeless2, effects.spray, 500)
         sprites.destroy(foodforthehomeless2, effects.spray, 500)
     }
-    game.setGameOverMessage(true, "you successfully ended hunger in this area")
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite4, otherSprite4) {
     foodforthehomeless3.follow(player1, 100)
-})
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite4, otherSprite4) {
-    foodforthehomeless2.follow(player1, 100)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -40,9 +36,6 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite22
         sprites.destroy(foodforhomeless1, effects.spray, 500)
     }
 })
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite2, otherSprite2) {
-    foodforhomeless1.follow(player1, 100)
-})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     player1,
@@ -51,13 +44,19 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite42, otherSprite42) {
+    foodforthehomeless2.follow(player1, 100)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    foodforhomeless1.follow(player1, 100)
+})
 let homeless3: Sprite = null
 let homeless2: Sprite = null
 let homeless1: Sprite = null
 let foodforthehomeless3: Sprite = null
-let foodforthehomeless2: Sprite = null
-let foodforhomeless1: Sprite = null
-let player1: Sprite = null
+let player1 : Sprite = null
+let foodforhomeless1 : Sprite = null
+let foodforthehomeless2 : Sprite = null
 story.startCutscene(function () {
     game.showLongText("would you like to be a humanitarian volunteer?", DialogLayout.Bottom)
     story.showPlayerChoices("Yes", "no")
@@ -89,15 +88,13 @@ foodforthehomeless3.x += -125
 player1 = sprites.create(assets.image`player`, SpriteKind.Player)
 player1.y += 10
 scene.cameraFollowSprite(player1)
-// player1.say_text("hello volunteer, I am you.", 5000, True)
-// pause(5000)
-// player1.say_text("today, you must complete giving food to the poor homeless people before time runs out.",
-// 5000,
-// True)
-// pause(5000)
-// player1.say_text("quick, let's begin", 5000, True)
-// pause(5000)
-// player1.say_text("they are waiting for us", 2000, True)
+player1.sayText("hello volunteer, I am you.", 5000, true)
+pause(5000)
+player1.sayText("today, you must complete giving food to the poor homeless people before time runs out.", 5000, true)
+pause(5000)
+player1.sayText("quick, let's begin", 5000, true)
+pause(5000)
+player1.sayText("they are waiting for us", 2000, true)
 homeless1 = sprites.create(assets.image`homeless1`, SpriteKind.feedingperson)
 homeless1.x += 55
 homeless1.y += 10
@@ -107,9 +104,6 @@ homeless2.y += 10
 homeless3 = sprites.create(assets.image`homeless3`, SpriteKind.feedingperson3)
 homeless3.x += 35
 homeless3.y += 10
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_on_overlap6(sprite5: Sprite, otherSprite5: Sprite) {
-    foodforthehomeless2.follow(player1, 100)
-})
 game.onUpdate(function () {
     player1.x += controller.dx()
 })

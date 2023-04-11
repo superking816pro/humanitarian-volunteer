@@ -10,16 +10,11 @@ def on_on_overlap(sprite, otherSprite):
         info.change_life_by(1)
         sprites.destroy(homeless2, effects.spray, 500)
         sprites.destroy(foodforthehomeless2, effects.spray, 500)
-    game.set_game_over_message(True, "you successfully ended hunger in this area")
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson, on_on_overlap)
 
 def on_on_overlap2(sprite4, otherSprite4):
     foodforthehomeless3.follow(player1, 100)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap2)
-
-def on_on_overlap3(sprite42, otherSprite42):
-    foodforthehomeless2.follow(player1, 100)
-sprites.on_overlap(SpriteKind.food, SpriteKind.player, on_on_overlap3)
 
 def on_left_pressed():
     animation.run_image_animation(player1,
@@ -30,23 +25,19 @@ def on_left_pressed():
         True)
 controller.left.on_event(ControllerButtonEvent.PRESSED, on_left_pressed)
 
-def on_on_overlap4(sprite3, otherSprite3):
+def on_on_overlap3(sprite3, otherSprite3):
     if True:
         info.change_life_by(1)
         sprites.destroy(homeless3, effects.spray, 500)
         sprites.destroy(foodforthehomeless3, effects.spray, 500)
-sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap4)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap3)
 
-def on_on_overlap5(sprite22, otherSprite22):
+def on_on_overlap4(sprite22, otherSprite22):
     if True:
         info.change_life_by(1)
         sprites.destroy(homeless1, effects.spray, 500)
         sprites.destroy(foodforhomeless1, effects.spray, 500)
-sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap5)
-
-def on_on_overlap7(sprite2, otherSprite2):
-    foodforhomeless1.follow(player1, 100)
-sprites.on_overlap(SpriteKind.food, SpriteKind.player, on_on_overlap7)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap4)
 
 def on_right_pressed():
     animation.run_image_animation(player1,
@@ -57,13 +48,21 @@ def on_right_pressed():
         True)
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
 
+def on_on_overlap5(sprite42, otherSprite42):
+    foodforthehomeless2.follow(player1, 100)
+sprites.on_overlap(SpriteKind.food, SpriteKind.player, on_on_overlap5)
+
+def on_on_overlap6(sprite2, otherSprite2):
+    foodforhomeless1.follow(player1, 100)
+sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap6)
+
 homeless3: Sprite = None
 homeless2: Sprite = None
 homeless1: Sprite = None
 foodforthehomeless3: Sprite = None
-foodforthehomeless2: Sprite = None
-foodforhomeless1: Sprite = None
 player1: Sprite = None
+foodforhomeless1: Sprite = None
+foodforthehomeless2: Sprite = None
 
 def on_start_cutscene():
     game.show_long_text("would you like to be a humanitarian volunteer?",
@@ -113,15 +112,15 @@ player1 = sprites.create(assets.image("""
 """), SpriteKind.player)
 player1.y += 10
 scene.camera_follow_sprite(player1)
-# player1.say_text("hello volunteer, I am you.", 5000, True)
-# pause(5000)
-# player1.say_text("today, you must complete giving food to the poor homeless people before time runs out.",
-# 5000,
-# True)
-# pause(5000)
-# player1.say_text("quick, let's begin", 5000, True)
-# pause(5000)
-# player1.say_text("they are waiting for us", 2000, True)
+player1.say_text("hello volunteer, I am you.", 5000, True)
+pause(5000)
+player1.say_text("today, you must complete giving food to the poor homeless people before time runs out.",
+    5000,
+    True)
+pause(5000)
+player1.say_text("quick, let's begin", 5000, True)
+pause(5000)
+player1.say_text("they are waiting for us", 2000, True)
 homeless1 = sprites.create(assets.image("""
         homeless1
     """),
@@ -140,10 +139,6 @@ homeless3 = sprites.create(assets.image("""
     SpriteKind.feedingperson3)
 homeless3.x += 35
 homeless3.y += 10
-
-def on_on_overlap6(sprite5, otherSprite5):
-    foodforthehomeless2.follow(player1, 100)
-sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap6)
 
 def on_on_update():
     player1.x += controller.dx()
