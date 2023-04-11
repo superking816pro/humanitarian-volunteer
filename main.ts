@@ -45,17 +45,9 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite2,
         sprites.destroy(foodforhomeless1, effects.spray, 500)
     }
 })
-sprites.onOverlap(foodforthehomeless2, SpriteKind.Food, function (sprite, otherSprite) {
-    foodforthehomeless2.follow(player1, 100)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    foodforthehomeless3.follow(player1, 100)
-})
 let homeless3: Sprite = null
 let homeless2: Sprite = null
 let homeless1: Sprite = null
-let foodforthehomeless3: Sprite = null
-let foodforthehomeless2 = 0
 let foodforhomeless1: Sprite = null
 let player1: Sprite = null
 story.startCutscene(function () {
@@ -76,10 +68,10 @@ table.y += 10
 table.x += -60
 foodforhomeless1 = sprites.create(assets.image`food`, SpriteKind.Food)
 foodforhomeless1.x += -53
-foodforthehomeless2 = sprites.create(assets.image`food`, SpriteKind.Food)
-foodforthehomeless2.x += -53
-foodforthehomeless3 = sprites.create(assets.image`food`, SpriteKind.Food)
-foodforthehomeless3.x += -53
+let foodforthehomeless2 = sprites.create(assets.image`food`, SpriteKind.Food)
+foodforthehomeless2.x += -63
+let foodforthehomeless3 = sprites.create(assets.image`food`, SpriteKind.Food)
+foodforthehomeless3.x += -73
 player1 = sprites.create(assets.image`player`, SpriteKind.Player)
 player1.y += 10
 scene.cameraFollowSprite(player1)
