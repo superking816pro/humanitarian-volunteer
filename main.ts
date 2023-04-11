@@ -4,12 +4,18 @@ namespace SpriteKind {
     export const feedingperson2 = SpriteKind.create()
     export const feedingperson3 = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite, otherSprite) {
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless2, effects.spray, 500)
         sprites.destroy(foodforthehomeless2, effects.spray, 500)
+        game.setGameOverMessage(true, "you successfully ended hunger in this area")
     }
+})
+sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite22, otherSprite22) {
+    info.changeLifeBy(1)
+    sprites.destroy(homeless1, effects.spray, 500)
+    sprites.destroy(foodforhomeless1, effects.spray, 500)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite4, otherSprite4) {
     foodforthehomeless3.follow(player1, 100)
@@ -27,13 +33,6 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson3, function (sprite3,
         info.changeLifeBy(1)
         sprites.destroy(homeless3, effects.spray, 500)
         sprites.destroy(foodforthehomeless3, effects.spray, 500)
-    }
-})
-sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite22, otherSprite22) {
-    if (true) {
-        info.changeLifeBy(1)
-        sprites.destroy(homeless1, effects.spray, 500)
-        sprites.destroy(foodforhomeless1, effects.spray, 500)
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
