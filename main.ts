@@ -8,11 +8,11 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson, function (sprite, o
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless1, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite4, otherSprite4) {
-    foodforhomeless.follow(player1, 100)
+    foodforhomeless1.follow(player1, 100)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -26,7 +26,7 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson3, function (sprite3,
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless3, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -41,13 +41,22 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson2, function (sprite2,
     if (true) {
         info.changeLifeBy(1)
         sprites.destroy(homeless2, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
+        sprites.destroy(foodforhomeless1, effects.spray, 500)
     }
+})
+sprites.onOverlap(foodforthehomeless2, SpriteKind.Food, function (sprite, otherSprite) {
+    foodforthehomeless2.follow(player1, 100)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    foodforthehomeless3.follow(player1, 100)
 })
 let homeless3: Sprite = null
 let homeless2: Sprite = null
 let homeless1: Sprite = null
-let foodforhomeless: Sprite = null
+let foodforthehomeless3: Sprite = null
+let foodforthehomeless2 = 0
+let foodforhomeless1: Sprite = null
 let player1: Sprite = null
 story.startCutscene(function () {
     game.showLongText("would you like to be a humanitarian volunteer?", DialogLayout.Bottom)
@@ -65,8 +74,12 @@ info.setLife(1)
 let table = sprites.create(assets.image`table`, SpriteKind.object2)
 table.y += 10
 table.x += -60
-foodforhomeless = sprites.create(assets.image`food`, SpriteKind.Food)
-foodforhomeless.x += -53
+foodforhomeless1 = sprites.create(assets.image`food`, SpriteKind.Food)
+foodforhomeless1.x += -53
+foodforthehomeless2 = sprites.create(assets.image`food`, SpriteKind.Food)
+foodforthehomeless2.x += -53
+foodforthehomeless3 = sprites.create(assets.image`food`, SpriteKind.Food)
+foodforthehomeless3.x += -53
 player1 = sprites.create(assets.image`player`, SpriteKind.Player)
 player1.y += 10
 scene.cameraFollowSprite(player1)

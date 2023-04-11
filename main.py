@@ -9,11 +9,11 @@ def on_on_overlap(sprite, otherSprite):
     if True:
         info.change_life_by(1)
         sprites.destroy(homeless1, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson, on_on_overlap)
 
 def on_on_overlap2(sprite4, otherSprite4):
-    foodforhomeless.follow(player1, 100)
+    foodforhomeless1.follow(player1, 100)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap2)
 
 def on_left_pressed():
@@ -29,7 +29,7 @@ def on_on_overlap3(sprite3, otherSprite3):
     if True:
         info.change_life_by(1)
         sprites.destroy(homeless3, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap3)
 
 def on_right_pressed():
@@ -45,13 +45,24 @@ def on_on_overlap4(sprite2, otherSprite2):
     if True:
         info.change_life_by(1)
         sprites.destroy(homeless2, effects.spray, 500)
-        foodforhomeless.x += -53
+        foodforhomeless1.x += -53
+        sprites.destroy(foodforhomeless1, effects.spray, 500)
 sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson2, on_on_overlap4)
+
+def on_on_overlap5(sprite5, otherSprite5):
+    foodforthehomeless2.follow(player1, 100)
+sprites.on_overlap(foodforthehomeless2, SpriteKind.food, on_on_overlap5)
+
+def on_on_overlap6(sprite6, otherSprite6):
+    foodforthehomeless3.follow(player1, 100)
+sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_on_overlap6)
 
 homeless3: Sprite = None
 homeless2: Sprite = None
 homeless1: Sprite = None
-foodforhomeless: Sprite = None
+foodforthehomeless3: Sprite = None
+foodforthehomeless2 = 0
+foodforhomeless1: Sprite = None
 player1: Sprite = None
 
 def on_start_cutscene():
@@ -75,10 +86,18 @@ table = sprites.create(assets.image("""
 """), SpriteKind.object2)
 table.y += 10
 table.x += -60
-foodforhomeless = sprites.create(assets.image("""
+foodforhomeless1 = sprites.create(assets.image("""
     food
 """), SpriteKind.food)
-foodforhomeless.x += -53
+foodforhomeless1.x += -53
+foodforthehomeless2 = sprites.create(assets.image("""
+    food
+"""), SpriteKind.food)
+foodforthehomeless2.x += -53
+foodforthehomeless3 = sprites.create(assets.image("""
+    food
+"""), SpriteKind.food)
+foodforthehomeless3.x += -53
 player1 = sprites.create(assets.image("""
     player
 """), SpriteKind.player)
