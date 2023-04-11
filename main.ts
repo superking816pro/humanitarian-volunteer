@@ -49,6 +49,16 @@ let homeless2: Sprite = null
 let homeless1: Sprite = null
 let foodforhomeless: Sprite = null
 let player1: Sprite = null
+story.startCutscene(function () {
+    game.showLongText("would you like to be a humanitarian volunteer?", DialogLayout.Bottom)
+    story.showPlayerChoices("Yes", "no")
+    if (story.checkLastAnswer("Yes")) {
+        game.showLongText("let's go ", DialogLayout.Bottom)
+    } else {
+        game.showLongText("you didn't want to be be a volunteer", DialogLayout.Bottom)
+        game.gameOver(false)
+    }
+})
 scene.setBackgroundImage(assets.image`bg`)
 scene.cameraFollowSprite(player1)
 info.setLife(1)

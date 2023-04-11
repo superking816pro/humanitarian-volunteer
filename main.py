@@ -53,6 +53,18 @@ homeless2: Sprite = None
 homeless1: Sprite = None
 foodforhomeless: Sprite = None
 player1: Sprite = None
+
+def on_start_cutscene():
+    game.show_long_text("would you like to be a humanitarian volunteer?",
+        DialogLayout.BOTTOM)
+    story.show_player_choices("Yes", "no")
+    if story.check_last_answer("Yes"):
+        game.show_long_text("let's go ", DialogLayout.BOTTOM)
+    else:
+        game.show_long_text("you didn't want to be be a volunteer", DialogLayout.BOTTOM)
+        game.game_over(False)
+story.start_cutscene(on_start_cutscene)
+
 scene.set_background_image(assets.image("""
     bg
 """))
