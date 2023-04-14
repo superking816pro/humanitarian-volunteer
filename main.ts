@@ -65,10 +65,17 @@ sprites.onOverlap(SpriteKind.food5, SpriteKind.feedingperson5, function (sprite2
             pause(5000)
             homeless5.sayText(" However, leaving my home and community had been a difficult decision.", 5000, true)
             pause(5000)
-            game.setGameOverMessage(true, "you successfully ended hunger in this area")
+            game.showLongText("you successfully ended hunger in this area", DialogLayout.Bottom)
+            game.gameOver(true)
+        } else {
+            game.showLongText("you successfully ended hunger in this area", DialogLayout.Bottom)
+            game.gameOver(true)
         }
-        game.setGameOverMessage(true, "you successfully ended hunger in this area")
     })
+})
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+    foodforhomeless1.follow(player1, 100)
+    foodforthehomeless4.follow(player1, 100)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -188,6 +195,12 @@ homeless5 = sprites.create(img`
     `, SpriteKind.feedingperson5)
 homeless5.y += 10
 homeless5.x += 115
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function on_on_overlap9(sprite23: Sprite, otherSprite23: Sprite) {
+    foodforthehomeless4.follow(player1, 100)
+})
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function on_on_overlap8(sprite2: Sprite, otherSprite2: Sprite) {
+    foodforhomeless1.follow(player1, 100)
+})
 game.onUpdate(function () {
     player1.x += controller.dx()
 })
