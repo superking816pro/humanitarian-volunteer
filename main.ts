@@ -45,7 +45,6 @@ sprites.onOverlap(SpriteKind.Food, SpriteKind.feedingperson3, function (sprite3,
 })
 sprites.onOverlap(SpriteKind.food5, SpriteKind.feedingperson5, function (sprite223, otherSprite223) {
     info.changeLifeBy(1)
-    game.setGameOverMessage(true, "you successfully ended hunger in this area")
     sprites.destroy(homeless5, effects.spray, 500)
     sprites.destroy(foodforthehomeless5, effects.spray, 500)
 })
@@ -172,4 +171,9 @@ homeless5.y += 10
 homeless5.x += 115
 game.onUpdate(function () {
     player1.x += controller.dx()
+})
+game.onUpdate(function () {
+    if (info.life() == 6) {
+        game.setGameOverMessage(true, "you successfully ended hunger in this area")
+    }
 })

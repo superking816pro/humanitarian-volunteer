@@ -57,8 +57,12 @@ def on_on_overlap7(sprite223, otherSprite223):
 sprites.on_overlap(SpriteKind.food5, SpriteKind.feedingperson5, on_on_overlap7)
 
 def on_on_overlap8(sprite2, otherSprite2):
-    foodforthehomeless4.follow(player1, 100)
+    foodforhomeless1.follow(player1, 100)
 sprites.on_overlap(SpriteKind.food, SpriteKind.player, on_on_overlap8)
+
+def on_on_overlap9(sprite23, otherSprite23):
+    foodforthehomeless4.follow(player1, 100)
+sprites.on_overlap(SpriteKind.food, SpriteKind.player, on_on_overlap9)
 
 def on_right_pressed():
     animation.run_image_animation(player1,
@@ -69,11 +73,11 @@ def on_right_pressed():
         True)
 controller.right.on_event(ControllerButtonEvent.PRESSED, on_right_pressed)
 
-def on_on_overlap9(sprite222, otherSprite222):
+def on_on_overlap10(sprite222, otherSprite222):
     info.change_life_by(1)
     sprites.destroy(homeless4, effects.spray, 500)
     sprites.destroy(foodforthehomeless4, effects.spray, 500)
-sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson4, on_on_overlap9)
+sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson4, on_on_overlap10)
 
 homeless5: Sprite = None
 homeless4: Sprite = None
