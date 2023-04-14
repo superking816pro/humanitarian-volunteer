@@ -57,9 +57,44 @@ def on_on_overlap7(sprite223, otherSprite223):
         game.show_long_text("would you like to hear our story?", DialogLayout.BOTTOM)
         story.show_player_choices("yes", "no")
         if story.check_last_answer("yes"):
-            homeless5.say_text(" we had been living in a country that was already dealing with the aftermath of the 2014 annexation of Crimea by Russia. In 2022, when Russia invaded Ukraine again, our life has been severely impacted.  I lived in Ukraine where I have experienced direct military conflict and now been displaced from my home due to the fighting. My daily life has been disrupted by shortages of food, medicine, and other essential supplies. The economic and social consequences of the conflict have made it difficult to maintain a normal life.  Furthermore, we always have felt a sense of fear, anxiety, and uncertainty about the future. The possibility of further violence and escalation of the conflict has made it difficult to plan for the long term.  The situation continued to deteriorate, we left Ukraine to seek safety and security elsewhere. However, leaving my home and community had been a difficult decision.",
-                2000,
+            homeless5.say_text(" we had been living in a country that was already dealing with the aftermath of the 2014 annexation of Crimea by Russia. ",
+                5000,
                 True)
+            pause(5000)
+            homeless5.say_text("In 2022, when Russia invaded Ukraine again, our life has been severely impacted. ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text(" I lived in Ukraine where I have experienced direct military conflict and now been displaced from my home due to the fighting. ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text("My daily life has been disrupted by shortages of food, medicine, and other essential supplies. ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text("The economic and social consequences of the conflict have made it difficult to maintain a normal life.  ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text("Furthermore, we always have felt a sense of fear, anxiety, and uncertainty about the future.",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text(" The possibility of further violence and escalation of the conflict has made it difficult to plan for the long term.  ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text(" The situation continued to deteriorate, we left Ukraine to seek safety and security elsewhere. ",
+                5000,
+                True)
+            pause(5000)
+            homeless5.say_text(" However, leaving my home and community had been a difficult decision.",
+                5000,
+                True)
+            pause(5000)
+            game.set_game_over_message(True, "you successfully ended hunger in this area")
+        game.set_game_over_message(True, "you successfully ended hunger in this area")
     story.start_cutscene(on_start_cutscene)
     
 sprites.on_overlap(SpriteKind.food5, SpriteKind.feedingperson5, on_on_overlap7)
