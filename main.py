@@ -51,9 +51,17 @@ sprites.on_overlap(SpriteKind.food, SpriteKind.feedingperson3, on_on_overlap6)
 
 def on_on_overlap7(sprite223, otherSprite223):
     info.change_life_by(1)
-    game.set_game_over_message(True, "you successfully ended hunger in this area")
-    sprites.destroy(homeless5, effects.spray, 500)
     sprites.destroy(foodforthehomeless5, effects.spray, 500)
+    
+    def on_start_cutscene():
+        game.show_long_text("would you like to hear our story?", DialogLayout.BOTTOM)
+        story.show_player_choices("yes", "no")
+        if story.check_last_answer("yes"):
+            homeless5.say_text(" we had been living in a country that was already dealing with the aftermath of the 2014 annexation of Crimea by Russia. In 2022, when Russia invaded Ukraine again, our life has been severely impacted.  I lived in Ukraine where I have experienced direct military conflict and now been displaced from my home due to the fighting. My daily life has been disrupted by shortages of food, medicine, and other essential supplies. The economic and social consequences of the conflict have made it difficult to maintain a normal life.  Furthermore, we always have felt a sense of fear, anxiety, and uncertainty about the future. The possibility of further violence and escalation of the conflict has made it difficult to plan for the long term.  The situation continued to deteriorate, we left Ukraine to seek safety and security elsewhere. However, leaving my home and community had been a difficult decision.",
+                2000,
+                True)
+    story.start_cutscene(on_start_cutscene)
+    
 sprites.on_overlap(SpriteKind.food5, SpriteKind.feedingperson5, on_on_overlap7)
 
 def on_on_overlap8(sprite2, otherSprite2):
@@ -91,7 +99,7 @@ foodforthehomeless2: Sprite = None
 foodforhomeless1: Sprite = None
 player1: Sprite = None
 
-def on_start_cutscene():
+def on_start_cutscene2():
     game.show_long_text("would you like to be a humanitarian volunteer?",
         DialogLayout.BOTTOM)
     story.show_player_choices("Yes", "no")
@@ -100,7 +108,7 @@ def on_start_cutscene():
     else:
         game.show_long_text("you didn't want to be be a volunteer", DialogLayout.BOTTOM)
         game.game_over(False)
-story.start_cutscene(on_start_cutscene)
+story.start_cutscene(on_start_cutscene2)
 
 scene.set_background_image(assets.image("""
     bg
@@ -220,3 +228,8 @@ homeless5.x += 115
 def on_on_update():
     player1.x += controller.dx()
 game.on_update(on_on_update)
+
+def on_on_update2():
+    if info.life() == 6:
+        game.set_game_over_message(True, "you successfully ended hunger in this area")
+game.on_update(on_on_update2)
